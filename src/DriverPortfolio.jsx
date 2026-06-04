@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import Logo from './assets/Logo.webp'
 
 const NAV_LINKS = ["Home", "About", "Experience", "Services", "License", "Booking"];
 
@@ -77,13 +78,34 @@ export default function DriverPortfolio() {
     setMenuOpen(false);
     setActiveSection(id);
   };
+    // Booking Form
+      const handleForm = (e) => {
+        e.preventDefault();
 
-  const handleForm = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-    setFormData({ name: "", phone: "", date: "", message: "" });
-  };
+        const message = `
+      🚗 New Booking Request
+
+      👤 Name: ${formData.name}
+      📞 Phone: ${formData.phone}
+      📅 Date: ${formData.date}
+
+      📝 Message:
+      ${formData.message}
+        `;
+
+        window.open(
+          `https://wa.me/8801716730970?text=${encodeURIComponent(message)}`,
+          "_blank"
+        );
+
+        // Form Reset
+        setFormData({
+          name: "",
+          phone: "",
+          date: "",
+          message: "",
+        });
+      };
 
   return (
     <div className="bg-black text-white font-sans antialiased overflow-x-hidden">
@@ -301,7 +323,7 @@ export default function DriverPortfolio() {
               { num: "25+", label: "Years Experience" },
               { num: "500+", label: "Happy Clients" },
               { num: "1M+", label: "KM Driven" },
-              { num: "0", label: "Major Accidents" },
+              
             ].map((s) => (
               <div key={s.label} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 card-hover">
                 <div className="font-display text-5xl gold">{s.num}</div>
@@ -321,7 +343,7 @@ export default function DriverPortfolio() {
             <div>
               {/* Avatar */}
               <div className="w-40 h-40 rounded-full avatar-ring bg-zinc-800 flex items-center justify-center mb-8 text-7xl">
-                Icon
+                <img className="w-full h-full object-cover rounded-full" src={Logo} alt="Logo" />
               </div>
               <h2 className="font-display text-5xl mb-5">ABOUT ME</h2>
               <p className="font-body text-gray-300 leading-relaxed mb-4">
@@ -527,7 +549,6 @@ export default function DriverPortfolio() {
               <button type="submit" className="btn-gold w-full text-base">
                 🚗 Submit Booking Request
               </button>
-              <p className="font-body text-gray-500 text-xs text-center">Or reach directly via WhatsApp → +880 1700 000000</p>
             </form>
           )}
         </div>
@@ -554,7 +575,7 @@ export default function DriverPortfolio() {
 
       {/* WHATSAPP FLOATING */}
       <a
-        href="https://wa.me/8801716730970"
+        href="https://wa.me/+8801716730970"
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp-btn"
