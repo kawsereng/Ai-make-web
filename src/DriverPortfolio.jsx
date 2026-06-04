@@ -558,7 +558,7 @@ export default function DriverPortfolio() {
       <footer className="bg-black border-t border-zinc-900 py-10">
         <div className="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 bg-gold rounded-full flex items-center justify-center font-display text-black text-lg">M</div>
+            <div className="w-9 h-9 bg-gold rounded-full flex items-center justify-center font-display text-black text-lg">MD</div>
             <div>
               <div className="font-display text-lg tracking-widest gold">SHIPON MRIDHA</div>
               <div className="font-body text-gray-500 text-xs">Professional Driver · Bangladesh</div>
